@@ -1,0 +1,8 @@
+
+<%= text_field_tag 'post' %>
+<%= button_tag 'Save', data: { behavior: 'save-post' } %>
+<ol>
+  <% @posts.each do |post| %>
+    <li><%= post[:url] %></li>
+  <% end %>
+</ol>
