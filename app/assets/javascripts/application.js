@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bookmarks
+//= require my_bookmarks
 //= require turbolinks
 //= require_tree .
 
@@ -22,7 +22,7 @@
     var controller = $body.data("controller").replace(/\//g, "_");
     var action = $body.data("action");
 
-    var activeController = Bookmarks[controller];
+    var activeController = MyBookmarks[controller];
 
     if (activeController !== undefined) {
       if ($.isFunction(activeController.init)) {
