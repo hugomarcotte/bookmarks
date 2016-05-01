@@ -2,26 +2,23 @@
 
 <h1>Listing Bookmarks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Url</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bookmarks.each do |bookmark| %>
-      <tr>
-        <td><%= bookmark.url %></td>
-        <td><%= bookmark.user.email %></td>
-        <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= form_for @bookmark, :html => { :id => 'new_bookmark' }, remote: true do |f| %>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div id="error">Bookmark not saved!</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <br>
 
-<%= render 'form' %>
+<ul id="bookmark_list">
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+      <%= render partial: 'bookmark', locals: { bookmark: bookmark } %>
+    </li>
+  <% end %>
+</ul>
