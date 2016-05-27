@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require my_bookmarks
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 (function($, undefined) {
