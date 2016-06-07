@@ -5,7 +5,10 @@ class BookmarksController < ApplicationController
   # GET /bookmarks.json
   def index
     @bookmarks = Bookmark.all
-    @bookmark = Bookmark.new
+
+    respond_to do |format|
+      format.json { render json: @bookmarks }
+    end
   end
 
   # POST /bookmarks

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'home/index'
 
-  root to: "bookmarks#index"
+  root to: 'home#index'
 
   resources :users
   # resources :bookmarks
@@ -10,6 +9,8 @@ Rails.application.routes.draw do
   get 'bookmarks' => 'bookmarks#index'
   post 'bookmarks' => 'bookmarks#create'
   delete 'bookmarks/:id' => 'bookmarks#destroy', as: :bookmark
+
+  get '/api/bookmarks' => 'bookmarks#index', defaults: { format: :json }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
